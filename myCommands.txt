@@ -1,0 +1,25 @@
+--To submit the assignment
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperSimpleApp -PserverUrl=http://pal-tracker-shiny-wildebeest.apps.evans.pal.pivotal.io/
+
+
+--Pivotal cloud console
+https://login.sys.evans.pal.pivotal.io/login
+
+--Set an environment variable to tell the buildpack to use Java 11.
+cf set-env pal-tracker JBP_CONFIG_OPEN_JDK_JRE '{ jre: { version: 11.+ } }'
+cf restage pal-tracker
+
+--to push your app to pivotal
+cf push pal-tracker --random-route -p build/libs/pal-tracker.jar
+
+
+-- to set target
+cf api api.sys.evans.pal.pivotal.io
+cf login
+
+or
+
+
+--to gets logs from cli
+cf logs pal-tracker

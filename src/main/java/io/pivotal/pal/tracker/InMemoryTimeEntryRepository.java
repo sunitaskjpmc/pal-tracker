@@ -6,18 +6,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Component
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
-    private Map<Long, TimeEntry> timeEntriesMap = new HashMap<>();
-    private Long timeEntrySequence = 0l;
+    private Map<Long, TimeEntry> timeEntriesMap = new ConcurrentHashMap<>();
+    private AtomicLong timeEntrySequence = new AtomicLong(0L);
 
     @Override
     public TimeEntry create(TimeEntry timeEntry) {
-        timeEntrySequence++;
 
         if (timeEntry.getId() == null) {
-            timeEntry.setId(timeEntrySequence);
+            timeEntry.setId(timeEntrySequence.incrementAndGet());
         }
 
         timeEntriesMap.put(timeEntry.getId(), timeEntry);

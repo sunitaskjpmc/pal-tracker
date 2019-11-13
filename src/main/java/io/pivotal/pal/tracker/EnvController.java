@@ -26,5 +26,7 @@ public class EnvController {
     }
     //cf set-env pal-tracker port 5555
     //cf set-env pal-tracker MEMORY_LIMIT '100GB'
+
+    //git remote add origin https://github.com/sunitaskjpmc/pal-tracker.git
     
 }

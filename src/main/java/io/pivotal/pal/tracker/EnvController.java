@@ -28,5 +28,6 @@ public class EnvController {
     //cf set-env pal-tracker MEMORY_LIMIT '100GB'
 
     //git remote add origin https://github.com/sunitaskjpmc/pal-tracker.git
+    //./gradlew cloudNativeDeveloperReviewPipeline -PreviewUrl=http://pal-tracker-zany-lynx.apps.evans.pal.pivotal.io/
     
 }

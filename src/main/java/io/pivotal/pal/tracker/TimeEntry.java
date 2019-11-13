@@ -29,6 +29,10 @@ public class TimeEntry {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -65,10 +69,6 @@ public class TimeEntry {
         this.hours = hours;
     }
 
-
-    public Long getId() {
-        return id;
-    }
 
     @Override
     public boolean equals(Object o) {

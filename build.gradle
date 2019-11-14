@@ -6,6 +6,7 @@ buildscript {
     }
 
     repositories {
+        mavenCentral()
         jcenter()
        
     }
@@ -27,6 +28,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: "org.flywaydb.flyway"
 
 repositories {
+    mavenCentral()
     jcenter()
     
 }

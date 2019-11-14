@@ -1,0 +1,19 @@
+--for submission
+./gradlew cloudNativeDeveloperReviewPipeline -PreviewUrl=http://pal-tracker-zany-lynx.apps.evans.pal.pivotal.io
+
+
+cf env pal-tracker
+
+git push pal-tracker
+git status
+p.mysql
+
+
+p.mysql                       db-small          Dedicated instances of MySQL                                                                               dedicated-mysql-broker
+
+cf create-service p.mysql db-small  pal-tracker-my-sql-ins -b dedicated-mysql-broker
+cf service pal-tracker-my-sql-ins
+
+cf bind-service pal-tracker pal-tracker-my-sql-ins
+
+./gradlew cloudNativeDeveloperDatabaseMigrations -PserverUrl=http://pal-tracker-zany-lynx.apps.evans.pal.pivotal.io

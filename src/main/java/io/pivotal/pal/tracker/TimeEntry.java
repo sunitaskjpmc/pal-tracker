@@ -10,6 +10,9 @@ public class TimeEntry {
     private LocalDate date;
     private int hours;
 
+    public TimeEntry() {
+    }
+
     public TimeEntry(Long projectId, Long userId, LocalDate date, int hours) {
         this.projectId = projectId;
         this.userId = userId;
@@ -25,7 +28,11 @@ public class TimeEntry {
         this.hours = hours;
     }
 
-    public TimeEntry() {
+    public TimeEntry(int projectId, int userId, LocalDate date, int hours) {
+        this.projectId = Long.valueOf(projectId);
+        this.userId = Long.valueOf(userId);
+        this.date = date;
+        this.hours = hours;
     }
 
 

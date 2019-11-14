@@ -1,14 +1,12 @@
 package io.pivotal.pal.tracker;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Component
+
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     private Map<Long, TimeEntry> timeEntriesMap = new ConcurrentHashMap<>();
     private AtomicLong timeEntrySequence = new AtomicLong(0L);
@@ -26,7 +24,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry find(long id) {
+    public TimeEntry find(Long id) {
         return timeEntriesMap.get(id);
     }
 
@@ -37,12 +35,12 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
         timeEntriesMap.remove(id);
     }
 
     @Override
-    public TimeEntry update(long l, TimeEntry timeEntry) {
+    public TimeEntry update(Long l, TimeEntry timeEntry) {
         TimeEntry existingTimeEntry = timeEntriesMap.get(l);
         if (existingTimeEntry != null) {
             existingTimeEntry.setDate(timeEntry.getDate());

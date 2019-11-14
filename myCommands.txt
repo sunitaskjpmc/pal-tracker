@@ -17,7 +17,7 @@ cf service pal-tracker-my-sql-ins
 
 cf bind-service pal-tracker pal-tracker-my-sql-ins
 
-./gradlew cloudNativeDeveloperDatabaseMigrations -PserverUrl=http://pal-tracker-zany-lynx.apps.evans.pal.pivotal.io
+./gradlew ctiveDeveloperDatabaseMigrations -PserverUrl=http://pal-tracker-zany-lynx.apps.evans.pal.pivotal.io
 =======
 --To submit the assignment
 cd ~/workspace/assignment-submission

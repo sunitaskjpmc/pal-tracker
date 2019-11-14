@@ -10,13 +10,14 @@ buildscript {
 
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-  
+
     }
 }
 
 
 plugins {
     id "java"
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
 }
 
 apply plugin: 'org.springframework.boot'
@@ -39,3 +40,4 @@ bootRun.environment([
 test.environment([
         "welcome.message": "Hello from test",
 ])
+

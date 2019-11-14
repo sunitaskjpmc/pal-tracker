@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --for submission
 ./gradlew cloudNativeDeveloperReviewPipeline -PreviewUrl=http://pal-tracker-zany-lynx.apps.evans.pal.pivotal.io
 
@@ -17,3 +18,30 @@ cf service pal-tracker-my-sql-ins
 cf bind-service pal-tracker pal-tracker-my-sql-ins
 
 ./gradlew cloudNativeDeveloperDatabaseMigrations -PserverUrl=http://pal-tracker-zany-lynx.apps.evans.pal.pivotal.io
+=======
+--To submit the assignment
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperSimpleApp -PserverUrl=http://pal-tracker-shiny-wildebeest.apps.evans.pal.pivotal.io/
+
+
+--Pivotal cloud console
+https://login.sys.evans.pal.pivotal.io/login
+
+--Set an environment variable to tell the buildpack to use Java 11.
+cf set-env pal-tracker JBP_CONFIG_OPEN_JDK_JRE '{ jre: { version: 11.+ } }'
+cf restage pal-tracker
+
+--to push your app to pivotal
+cf push pal-tracker --random-route -p build/libs/pal-tracker.jar
+
+
+-- to set target
+cf api api.sys.evans.pal.pivotal.io
+cf login
+
+or
+
+
+--to gets logs from cli
+cf logs pal-tracker
+>>>>>>> 9ecd3af03fdcb8866c895fd8a26ca30bee59574d
